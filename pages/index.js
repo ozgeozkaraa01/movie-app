@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import Results from "../components/Results";
+
+import axios from "axios";
+import Error from "./error";
 
 export default function Home() {
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null); // Hata durumu için bir state
-  
+
   useEffect(() => {
     const fetchResults = async () => {
       try {
@@ -38,6 +42,7 @@ export default function Home() {
       </Head>
       <Header />
       <Navbar />
+      {error ? <Error error={error} /> : <Results results={results} />}
     </div>
   );
 }
