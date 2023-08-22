@@ -1,8 +1,34 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
+  const [results, setResults] = useState([]);
+  const [error, setError] = useState(null); // Hata durumu için bir state
+  
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.themoviedb.org/3/trending/all/week",
+          {
+            params: {
+              api_key: "e04ef0767144f1d3e5ec3a089f172425",
+              language: "en-US",
+              page: 1,
+            },
+          }
+        );
+        setResults(response.data.results);
+        setError(null); // Hata durumunu sıfırla
+      } catch (error) {
+        setError(error); // Hata durumunu ayarla
+      }
+    };
+
+    fetchResults();
+  }, []);
   return (
     <div className="dark:bg-gray-900 bg-zinc-100 w-screen overflow-y-scroll h-screen">
       <Head>
