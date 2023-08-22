@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
-    <div className="bg-zinc-100">
+    <div className="dark:bg-gray-900 bg-zinc-100 w-screen overflow-y-scroll h-screen">
       <Head>
         <title>Next Movie App</title>
         <meta name="description" content="created by Özgenur Özkara" />
