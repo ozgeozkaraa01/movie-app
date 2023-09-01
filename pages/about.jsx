@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const About = () => {
   return (
     <div className="dark:bg-gray-900 bg-zinc-100 h-screen overflow-y-auto">
       <Header />
-      <div className="max-w-7xl mx-auto space-y-10 p-20">
+      <div className="max-w-7xl mx-auto space-y-10 pt-20 pb-10 px-20">
         <h1 className="text-2xl font-medium text-amber-600">About</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -35,6 +36,7 @@ const About = () => {
           exercitationem, ad nihil id quod dolore iure dolor sunt, unde itaque?
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

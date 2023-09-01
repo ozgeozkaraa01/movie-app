@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Header from "/components/Header";
+import Footer from "/components/Footer";
 
 const API_KEY = "e04ef0767144f1d3e5ec3a089f172425";
 
@@ -34,8 +36,9 @@ const MoviePage = () => {
   }
 
   return (
-    <div className="w-full h-screen bg-gray-900">
-      <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-5xl mx-auto md:space-x-6">
+    <div className="w-full h-screen dark:bg-gray-900 bg-indigo-100">
+      <Header />
+      <div className="p-40 md:pt-10 flex flex-col md:flex-row items-center content-center max-w-7xl mx-auto md:space-x-6">
         <Image
           src={`https://image.tmdb.org/t/p/original/${
             movie.backdrop_path || movie.poster_path
@@ -56,7 +59,7 @@ const MoviePage = () => {
             {movie.title || movie.name}
           </h2>
           <p className="text-lg mb-3">
-            <span className="font-semibold mr-1 text-gray-600">Overview:</span>
+            <span className="font-semibold mr-1 dark:text-gray-200">Overview:</span>
             {movie.overview}
           </p>
           <p className="mb-3">
@@ -71,6 +74,7 @@ const MoviePage = () => {
           </p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

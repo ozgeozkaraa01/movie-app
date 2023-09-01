@@ -6,6 +6,7 @@ import Results from "../components/Results";
 
 import axios from "axios";
 import Error from "./error";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [results, setResults] = useState([]);
@@ -34,7 +35,7 @@ export default function Home() {
     fetchResults();
   }, []);
   return (
-    <div className="dark:bg-gray-900 bg-zinc-100 w-screen overflow-y-scroll h-screen">
+    <div className="dark:bg-gray-900 bg-indigo-100 w-screen overflow-y-scroll h-screen">
       <Head>
         <title>Next Movie App</title>
         <meta name="description" content="created by Özgenur Özkara" />
@@ -43,6 +44,7 @@ export default function Home() {
       <Header />
       <Navbar />
       {error ? <Error error={error} /> : <Results results={results} />}
+      <Footer />
     </div>
   );
 }
